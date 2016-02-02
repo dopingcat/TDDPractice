@@ -31,4 +31,12 @@ public class AccountTest {
 		account.deposit(10000);
 		assertEquals(10000, account.getBalance());
 	}
+
+	// 출금 테스트
+	@Test
+	public void withdrawTest() {
+		Account account = new Account(10000);
+		account.withdraw(10000);
+		assertEquals(0, account.getBalance());
+	}
 }
