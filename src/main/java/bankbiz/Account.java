@@ -1,10 +1,13 @@
 package bankbiz;
 
 public class Account {
-	public Account(int i) {
+	private int balance;
+
+	public Account(int deposit) {
+		this.balance = deposit;
 	}
 
 	public int getBalance() {
-		return 10000;
+		return balance;
 	}
 }
