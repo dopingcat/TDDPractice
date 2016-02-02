@@ -11,7 +11,7 @@ public class AccountTest {
 	// 계좌 생성 테스트
 	@Test
 	public void accountTest() {
-		Account account = new Account();
+		Account account = new Account(0);
 		assertNotNull(account);
 	}
 
