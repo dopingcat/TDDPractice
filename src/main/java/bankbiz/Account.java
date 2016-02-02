@@ -3,15 +3,19 @@ package bankbiz;
 public class Account {
 	private int balance;
 
-	public Account(int deposit) {
-		this.balance = deposit;
+	public Account(int money) {
+		this.balance = money;
 	}
 
 	public int getBalance() {
 		return balance;
 	}
 
-	public void deposit(int deposit) {
-		balance += deposit;
+	public void deposit(int money) {
+		balance += money;
+	}
+
+	public void withdraw(int money) {
+		balance -= money;
 	}
 }
