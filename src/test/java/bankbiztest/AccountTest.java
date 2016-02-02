@@ -5,7 +5,6 @@ import bankbiz.Account;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.is;
 
 public class AccountTest {
 	// 계좌 생성 테스트
@@ -19,9 +18,9 @@ public class AccountTest {
 	@Test
 	public void getBalanceTest() {
 		Account account = new Account(10000);
-		assertThat(account.getBalance(), is(10000));
+		assertEquals(10000, account.getBalance());
 
 		account = new Account(0);
-		assertThat(account.getBalance(), is(0));
+		assertEquals(0, account.getBalance());
 	}
 }
