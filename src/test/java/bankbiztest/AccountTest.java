@@ -23,4 +23,12 @@ public class AccountTest {
 		account = new Account(0);
 		assertEquals(0, account.getBalance());
 	}
+
+	// 입금 테스트
+	@Test
+	public void depositTest() {
+		Account account = new Account(0);
+		account.deposit(10000);
+		assertEquals(10000, account.getBalance());
+	}
 }
