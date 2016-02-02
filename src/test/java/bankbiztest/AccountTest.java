@@ -20,5 +20,8 @@ public class AccountTest {
 	public void getBalanceTest() {
 		Account account = new Account(10000);
 		assertThat(account.getBalance(), is(10000));
+
+		account = new Account(0);
+		assertThat(account.getBalance(), is(0));
 	}
 }
