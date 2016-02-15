@@ -6,7 +6,10 @@
 	<target name="junit-test" description="Runs JUnit Tests">
 	
 		<!-- Ant 에서 junit 테스트를 실행하기 위한 task 이름. printsummary는 실행 결과의 요약본을 출력해준다 -->
-		<junit printsummary="yes">
+		<junit printsummary="yes" showoutput="yes">
+		
+			<!-- Ant의 JUnit Task에서는 xml, plain, brief, failure 4종류의 결과 파일을 제공 -->
+			<formatter type="plain" />
 			<classpath>
 				<!--
 					기본적으로 이클립스는 컴파일된 클래스 파일들이 프로젝트 홈 디렉토리 밑 bin 디렉토리에 위치하게됨
