@@ -57,4 +57,21 @@ public class VendingMachineTest {
 		expectedCoinSet.add(100);
 		assertEquals("잔액확인", expectedCoinSet, machine.getChangeCoinSet());
 	}
+
+	@Test
+	public void testReturnChangeCoinSet_coins_150() throws Exception {
+		VendingMachine machine = new VendingMachine();
+		machine.putCoin(50);
+		machine.putCoin(100);
+		machine.putCoin(500);
+		assertEquals("50 + 100 + 500 투입 후 잔액 확인", 650, machine.getChaneAmount());
+
+		machine.selectDrink(new Drink("Cola", 500));
+		assertEquals("650원 투입 후 500원 음료 선택", 150, machine.getChaneAmount());
+
+		CoinSet expectedCoinSet = new CoinSet();
+		expectedCoinSet.add(100);
+		expectedCoinSet.add(50);
+		assertEquals("잔액확인", expectedCoinSet, machine.getChangeCoinSet());
+	}
 }
