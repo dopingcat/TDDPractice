@@ -20,6 +20,10 @@ public class VendingMachine {
 	}
 
 	public CoinSet getChangeCoinSet() {
+		return getCoinSet(changeAmount);
+	}
+
+	public CoinSet getCoinSet(int changeAmount) {
 		CoinSet coinSet = new CoinSet();
 
 		while(changeAmount >= 500) {
