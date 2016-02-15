@@ -1,5 +1,7 @@
 package vendingmachine;
 
+import vendingmachine.drink.Drink;
+
 public class VendingMachine {
 	private int changeAmount;
 
@@ -9,5 +11,10 @@ public class VendingMachine {
 
 	public int getChaneAmount() {
 		return changeAmount;
+	}
+
+	public void selectDrink(Drink drink) {
+		if(changeAmount >= drink.getPrice())
+			changeAmount -= drink.getPrice();
 	}
 }
