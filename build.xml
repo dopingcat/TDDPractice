@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="tddpractice" default="junit-test" basedir=".">
 	<!-- add Default target "junit-test" -->
+	
 	<!-- 타겟 이름은 junit-test로 지정. 프로젝트의 기본 타깃으로 지정된 이름 description 까지 써주면 좋다 -->
 	<target name="junit-test" description="Runs JUnit Tests">
+	
 		<!-- Ant 에서 junit 테스트를 실행하기 위한 task 이름. printsummary는 실행 결과의 요약본을 출력해준다 -->
 		<junit printsummary="yes">
 			<classpath>
@@ -11,12 +13,25 @@
 					Ant 빌드 파일에서 컴파일된 클래스 파일들을 인식할 수 있도록 classpath 항목으로 위치를 지정해놓았다.
 				-->
 				<pathelement location="${basedir}/bin" />
+				
+				<!-- 프로젝트 홈에 junit-4.12.jar 추가 후 실행 -->
+				<pathelement location="junit-4.12.jar" />
 			</classpath>
 			<!--
 				Ant의 junit task의 하위 task에는 클래스를 하나씩 지정하는 test와 여러개를 순차적으로 실행하는 batchtest 두 종류가 있다
 				여기서는 test를 이용해 직접 테스트할 클래스를 지정해주고 있다.
 			-->
 			<test name="test.AccountTest" />
+			
+			<!-- fork 항목은 Ant를 실행한 JVM과 독립적인 JVM 내에 해당 테스트를 수행할 것인지를 지정하는 항목 -->
+			<batchtest fork="yes">
+				<fileset dir="${basedir}/src">
+				
+					<!-- src 디렉토리 내의 파일명이 Test.java로 끝나는 소스들을 실행 대상으로 지정 -->
+					<include name="**/*Test.java" />
+					<exclude name="**/AllTests.java" />
+				</fileset>
+			</batchtest>
 		</junit>
 	</target>
 </project>
